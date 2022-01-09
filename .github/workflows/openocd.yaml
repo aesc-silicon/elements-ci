@@ -34,13 +34,14 @@ jobs:
         git push origin HEAD:upstream -f
         cd ../
 
-    - name: Rebase to "rebased"
-      run: |
-        cd ${{ env.repository_name }}
-        git checkout rebased
-        git rebase upstream/${{ env.remote_branch }}
-        git push origin HEAD:rebased -f
-        cd ../
+# SpinalHDL's OpenOCD fork is used but we can't rebase to upstream.
+#    - name: Rebase to "rebased"
+#      run: |
+#        cd ${{ env.repository_name }}
+#        git checkout rebased
+#        git rebase upstream/${{ env.remote_branch }}
+#        git push origin HEAD:rebased -f
+#        cd ../
 
     - name: Merge to "main"
       run: |
