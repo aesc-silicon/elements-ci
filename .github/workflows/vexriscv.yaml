@@ -18,9 +18,9 @@ jobs:
     - name: Clone Repository
       run: |
         rm -rf ${{ env.repository_name }}
-        git clone https://dnltz:${{ secrets.PAT }}@github.com/phytec-labs/${{ env.repository_name }}.git ${{ env.repository_name }}
+        git clone https://elements-user:${{ secrets.PAT }}@github.com/aesc-silicon/${{ env.repository_name }}.git ${{ env.repository_name }}
         cd ${{ env.repository_name }}
-        git config --global user.email "no-mail@phytec.de"
+        git config --global user.email "no-mail@aesc-silicon.de"
         git config --global user.name "Elements CI"
         git remote add upstream ${{ env.remote_name }}
         git fetch upstream

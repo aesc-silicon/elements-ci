@@ -23,7 +23,7 @@ jobs:
         date > date.txt
         git add date.txt
 
-        git config --global user.email "no-mail@phytec.de"
+        git config --global user.email "no-mail@aesc-silicon.de"
         git config --global user.name "Elements CI"
         git commit -m "Update file"
         git push origin main
