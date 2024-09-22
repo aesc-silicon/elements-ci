@@ -1,0 +1,28 @@
+# Adds a timestamp to a file to keep this repo "active". Github will disable all workflows after
+# 90 days on repos without pushes.
+name: Refresh
+
+on:
+  push:
+    paths:
+      - '.github/workflows/refresh.yaml'
+  schedule:
+  - cron: "0 21 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Clone Repository
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PAT }}
+
+    - name: Create file
+      run: |
+        date > date.txt
+        git add date.txt
+        git config --global user.email "no-mail@aesc-silicon.de"
+        git config --global user.name "Elements CI"
+        git commit -m "Update file"
+        git push origin main
